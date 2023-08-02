@@ -1,5 +1,4 @@
-import os
-from flask import Flask, flash, jsonify, redirect, render_template, request, session
+from flask import Flask, redirect, render_template, request
 import sqlite3
 # Configure application
 app = Flask(__name__)
@@ -10,15 +9,6 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 dbName = "birthdays.db"
 
 BIRTHDAY_DATA = {"name": "Name", "month": "Month", "day": "Day"}
-
-
-# @app.after_request
-# def after_request(response):
-#     """Ensure responses aren't cached"""
-#     response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
-#     response.headers["Expires"] = 0
-#     response.headers["Pragma"] = "no-cache"
-#     return response
 
 
 @app.route("/", methods=["GET", "POST"])
